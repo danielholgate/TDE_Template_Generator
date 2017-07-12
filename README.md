@@ -7,7 +7,7 @@ To generate a template, first choose a sample XML document which is representati
 Supply the URI to the tg:generateTemplate function along with the schema name and the table name.
 
 The template generator will:
-* Build a column for each immediate child of the root element (hence best for MLCP-loaded CSV data, or simple XML datasets) 
+* Build a column for each immediate child of the root element (hence best for MLCP-loaded CSV data, or simple XML document datasets) 
 * Sample 100 element values for all values at that element path to determine datatype for the columns
 * Test if empty values exist and if so set the column as NULLABLE
 * Generate the final template and validate
