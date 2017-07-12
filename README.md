@@ -27,11 +27,11 @@ Include the template generator library by importing it with:
 ```
 import module namespace tg="templateGenerator" at "/tde/tde_template_generator.xqy";
 ```
-Choose a XML document which represents the documents you want to build a template for and generate it with:
+Choose a XML document which represents the documents you want to build a template for and use:
 ```
-tg:generateTemplate(<name of your schema>,<name of your tabe>, $doc)
+tg:generateTemplate(<name of your schema>,<name of your tabel>, $doc)
 ```
-** Usage example
+## Usage example
 You've loaded a CSV dataset through MLCP and chosen document /space/software/TDE/complaints_small.csv-0-10 to build a template:
 ```
  let $doc := doc("/space/software/TDE/complaints_small.csv-0-10")
@@ -46,6 +46,6 @@ let $template := tg:generateTemplate("GovDataSchema", "complaints", $doc)
 return  tde:template-insert("/Template-complaints.xml", $template)
 ```
 
-**In a SQL tab in Query console run:
+##In a SQL tab in Query console run:
 
 select * from GovDataSchema.complaints
