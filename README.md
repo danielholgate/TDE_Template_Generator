@@ -8,7 +8,7 @@ Supply the URI to the tg:generateTemplate function along with the schema name an
 
 The template generator will:
 * Build a column for each immediate child of the root element (hence best for MLCP-loaded CSV data, or simple XML document datasets) 
-* Sample 100 values from that element path to determine the correct data type for each columns
+* Sample 100 element values from that xpath path to determine the correct data type for each column
 * Test if any empty (= 0 byte length) values exist from the 100 values at the path and if so set the column as NULLABLE
 * Generate the final template and validate
 
