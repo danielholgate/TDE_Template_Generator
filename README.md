@@ -34,16 +34,16 @@ tg:generateTemplate(<name of your schema>,<name of your table>, $doc)
 This will generate a template which can be used in the tde:template-insert function as normal
 
 ## Usage example
-You've loaded a CSV dataset of consumer complaints data through MLCP and one of the documents /space/software/TDE/complaints_small.csv-0-10 as a sample to build a TDE template from. The table will be "complaints" in schema "GovData"
+You've loaded a CSV dataset of consumer complaints data through MLCP and from them chosen document "/load/data/complaints_small.csv-0-10" as a sample to build a TDE template from. The table will be "complaints" in schema "GovData"
 ```
- let $doc := doc("/space/software/TDE/complaints_small.csv-0-10")
+ let $doc := doc("/load/data/complaints_small.csv-0-10")
  let $template := tg:generateTemplate("GovData", "complaints", $doc)
  return ($template,tde:validate($template))
  ```
 When you're happy with the template, use the following to create and save it in MarkLogic:
 
 ``` 
-let $doc := doc("/space/software/TDE/complaints_small.csv-0-10")
+let $doc := doc("/load/data/complaints_small.csv-0-10")
 let $template := tg:generateTemplate("GovData", "complaints", $doc)
 return  tde:template-insert("/Template-complaints.xml", $template)
 ```
