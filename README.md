@@ -29,7 +29,7 @@ import module namespace tg="templateGenerator" at "/tde/tde_template_generator.x
 ```
 Choose a XML document which represents the documents you want to build a template for and use:
 ```
-tg:generateTemplate(<name of your schema>,<name of your tabel>, $doc)
+tg:generateTemplate(<name of your schema>,<name of your table>, $doc)
 ```
 This will generate a template which can be used in the tde:template-insert function as normal
 
