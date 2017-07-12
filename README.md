@@ -13,7 +13,7 @@ The template generator will:
 * Generate the final template and validate
 
 # Installation
-Save template_generator.xqy to a path accessible by MarkLogic and load the module from the filesystem with the following in a Query Console tab:
+Save generate_template.xqy to a path accessible by MarkLogic and load the module from the filesystem with the following in a Query Console tab:
 ```
 (xdmp:document-load("/path/to/template_generator.xqy",
     <options xmlns="xdmp:document-load">
