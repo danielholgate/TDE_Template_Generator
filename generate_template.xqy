@@ -5,7 +5,7 @@ import module namespace functx = "http://www.functx.com" at "/MarkLogic/functx/f
 declare function local:determineType ( $values as xs:anyAtomicType* ) as xs:string* {
 
  let $types := for $val in $values
- return if ($val = "true" or $val = "false") then 'boolean'
+ return if ($val castable as xs:boolean) then 'boolean'
  else if ($val castable as xs:long) then 'long'
  else if ($val castable as xs:integer) then 'integer'
  else if ($val castable as xs:float) then 'float'
