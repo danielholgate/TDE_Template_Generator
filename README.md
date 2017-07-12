@@ -13,7 +13,7 @@ The template generator will:
 * Generate the final template and validate
 
 # Installation
-Save template_generator.xqy to a path accessivle by MarkLogic and load the module from the filesystem with:
+Save template_generator.xqy to a path accessible by MarkLogic and load the module from the filesystem with:
 ```
 (xdmp:document-load("/path/to/template_generator.xqy",
     <options xmlns="xdmp:document-load">
@@ -27,11 +27,11 @@ Include the template generator library by importing it with:
 ```
 import module namespace tg="templateGenerator" at "/tde/tde_template_generator.xqy";
 ```
-Choose a XML document which represents the documents you want to build a template for and run
+Choose a XML document which represents the documents you want to build a template for and generate it with:
 ```
-tg:generateTemplate("GovDataSchema", "complaints", $doc)
+tg:generateTemplate(<name of your schema>,<name of your tabe>, $doc)
 ```
-
+** Usage example
 You've loaded a CSV dataset through MLCP and chosen document /space/software/TDE/complaints_small.csv-0-10 to build a template:
 ```
  let $doc := doc("/space/software/TDE/complaints_small.csv-0-10")
