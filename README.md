@@ -40,7 +40,7 @@ You've loaded a CSV dataset of consumer complaints data through MLCP and from th
  let $template := tg:generateTemplate("GovData", "complaints", $doc)
  return ($template,tde:validate($template))
  ```
-When you're happy with the template, use the following to create and save it in MarkLogic:
+This will return the template and show the results of validation. If you're happy with the template, use the following to create and save it in MarkLogic:
 
 ``` 
 let $doc := doc("/load/data/complaints_small.csv-0-10")
