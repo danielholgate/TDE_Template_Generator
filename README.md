@@ -5,8 +5,7 @@ This is an XQuery module for MarkLogic to generate templates for Template Driven
 
 The use case for using this is primarily loading CSV datasets and then being able to quickly serve the data out as SQL using TDE.
 
-To generate a template choose a document which is representative of the documents you want to create a template for and supply the URI
-to the generateTemplate function along with the schema name and the table name.
+To generate a template, first choose a sample document which is representative of the documents you want to create a template for and supply the URI to the generateTemplate function along with the schema name and the table name.
 
 The template generator will:
 Iterate each immediate child of the root element (hence best for MLCP-loaded CSV data, or simple XML datasets) 
