@@ -31,6 +31,8 @@ Choose a XML document which represents the documents you want to build a templat
 ```
 tg:generateTemplate(<name of your schema>,<name of your tabel>, $doc)
 ```
+This will generate a template which can be used in the tde:template-insert function as normal
+
 ## Usage example
 You've loaded a CSV dataset through MLCP and chosen document /space/software/TDE/complaints_small.csv-0-10 to build a template:
 ```
@@ -46,6 +48,8 @@ let $template := tg:generateTemplate("GovDataSchema", "complaints", $doc)
 return  tde:template-insert("/Template-complaints.xml", $template)
 ```
 
-##In a SQL tab in Query console run:
-
+### SQL Access  
+In a SQL tab in Query Console now run:
+``` 
 select * from GovDataSchema.complaints
+``` 
