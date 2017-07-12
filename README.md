@@ -27,11 +27,11 @@ Include the template generator library by importing it with:
 ```
 import module namespace tg="templateGenerator" at "/tde/tde_template_generator.xqy";
 ```
-Choose a XML document which represents the documents you want to build a template for and use:
+Choose an XML document which represents the document set you want to build a template for and use:
 ```
 tg:generateTemplate(<name of your schema>,<name of your table>, $doc)
 ```
-This will generate a template which can be used in the MarkLogic [tde:template-insert](https://docs.marklogic.com/tde:template-insert) function.
+This will generate an XML template document which can be used in the MarkLogic [tde:template-insert](https://docs.marklogic.com/tde:template-insert) function.
 
 ## Usage example
 You've loaded a CSV dataset of consumer complaints data through MLCP and from them chosen document "/load/data/complaints_small.csv-0-10" as a sample to build a TDE template from. The table will be "complaints" in schema "GovData"
