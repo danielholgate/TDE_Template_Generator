@@ -7,9 +7,10 @@ import module namespace functx = 'http://www.functx.com' at '/MarkLogic/functx/f
 declare function tg:determineType ( $values as xs:anyAtomicType* ) as xs:string* {
 
  let $types := for $val in $values
- return if ($val castable as xs:boolean) then 'boolean'
- else if ($val castable as xs:decimal) then 'decimal'
+ return if ($val = '') then ()
+ else if ($val castable as xs:boolean) then 'boolean'
  else if ($val castable as xs:integer) then 'integer'
+ else if ($val castable as xs:decimal) then 'decimal'
  else if ($val castable as xs:long) then 'long'
  else if ($val castable as xs:date) then 'date'
  else if ($val castable as xs:dateTime) then 'dateTime'
