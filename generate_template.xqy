@@ -6,8 +6,10 @@ import module namespace functx = 'http://www.functx.com' at '/MarkLogic/functx/f
 (: determines common TDE datatype for values in a sequence :)
 declare function tg:determineType ( $values as xs:anyAtomicType* ) as xs:string* {
 
- let $types := for $val in $values
- return if ($val = '') then ()
+ let $distinctVals := fn:distinct-values($values)
+
+ let $types := for $val in $distinctVals
+ return if ($val = '') then () 
  else if ($val castable as xs:boolean) then 'boolean'
  else if ($val castable as xs:integer) then 'integer'
  else if ($val castable as xs:decimal) then 'decimal'
@@ -15,7 +17,7 @@ declare function tg:determineType ( $values as xs:anyAtomicType* ) as xs:string*
  else if ($val castable as xs:date) then 'date'
  else if ($val castable as xs:dateTime) then 'dateTime'
  else if ($val castable as xs:string) then 'string'
- else 'unknown'
+ else ()
  let $distinctTypes := fn:distinct-values($types)
  (: String is lowest common denominator datatype - Use if no other data type fits all values :)
  let $returnType := if ( functx:is-value-in-sequence('string',$distinctTypes) ) then 'string' else $distinctTypes[1]
@@ -35,7 +37,7 @@ let $docURI := fn:document-uri($doc)
 let $columns := for $e in $doc/*/*
   let $elementpath := xdmp:path($e,fn:false())
   let $elementName := fn:tokenize($elementpath,'/')[last()]
-  (: Replace any hyphens or dots/periods in column names with _ :) 
+  (: SQL92/ML LDE does not allow columns with hyphens or full stop/periods. Replace with _ :) 
   let $templateColumnName := functx:replace-multi($elementName,$from,$to)
   
   (: Sample 100 elements at this path and determine data type :)
