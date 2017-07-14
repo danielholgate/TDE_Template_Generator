@@ -10,7 +10,8 @@ The template generator will:
 * Build a column for each immediate child of the root element (hence best for MLCP-loaded CSV data, or simple XML document datasets) 
 * Sample 100 element values from that xpath path to determine the correct data type for each column
 * Test if any empty (= 0 byte length) values exist from the 100 values at the path and if so set the column as NULLABLE
-* Generate the final template and validate
+* It will use the original element name also as the column name, but will replace . or - (not allowed for TDE column names) with _
+* Generate the final template
 
 # Installation
 Save generate_template.xqy to a path accessible by MarkLogic and load the module from the filesystem with the following in a Query Console tab:
