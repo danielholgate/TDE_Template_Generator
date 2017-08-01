@@ -1,16 +1,16 @@
 # TDE Template Generator
 This is an XQuery module for MarkLogic to "auto generate" templates for Template Driven Extraction (TDE)
 
-Use case for using this is when you have an existing set of documents and want to avoid the currently manual work of inspecting data and typing/copy & pasting needed to build the templates needed for serve the data out as SQL using TDE. Generated templates can then be manually adjusted as needed.
+Use case is when you have an existing set of documents and want to avoid the work of inspecting data types and the typing/copy & pasting needed to build out the template needed for serving out as SQL using TDE. Generated templates can then be manually adjusted as needed.
 
 To generate a template, first choose a sample XML document which is representative of those you want to create a template for.
 Supply the URI to the tg:generateTemplate function along with the schema name and the table name.
 
 The template generator will:
-* Build a column for each immediate child of the root element (hence best for MLCP-loaded CSV data, or simple XML document datasets) 
-* Sample 100 element values from that xpath path to determine the correct data type for each column
-* Test if any empty (= 0 byte length) values exist from the 100 values at the path and if so set the column as NULLABLE
-* It will use the original element name also as the column name, but will replace . or - (not allowed for TDE column names) with _
+* Build a <column> element for each immediate child of the root element (hence best for MLCP-loaded CSV data, or simple XML document datasets) 
+* Sample 100 element values from each element (xpath) path to best guess the correct data type for each column.
+* Test if any empty (= 0 byte length) values exist in the 100 values at the path and if so set the column as NULLABLE
+* Use the original element name as the column name, but replace . or - (not allowed for TDE column names) with _
 * Generate the final template
 
 # Installation
