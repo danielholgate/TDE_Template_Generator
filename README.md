@@ -54,3 +54,8 @@ In a SQL tab in Query Console now run:
 ``` 
 select * from GovData.complaints
 ``` 
+
+
+# Usage
+Better data type testing
+Build template from more complex XML sample documents
